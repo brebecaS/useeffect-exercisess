@@ -6,28 +6,28 @@ function Example0() {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
 
-  //   useEffect(() => {
-  //     console.log("useEffect"); =>  ruleaza la firecare randare
-  //   });
+  useEffect(() => {
+    console.log("useEffect"); // =>  ruleaza la firecare randare
+  });
 
-  //   useEffect(() => {
-  //     console.log("useEffect"); //=> ruleaza doar la prima randare (cand se incarca componenta)
-  //   }, []);
+  useEffect(() => {
+    console.log("useEffect"); //=> ruleaza doar la prima randare (cand se incarca componenta)
+  }, []);
 
-  // va rula ori de cate ori de schimba count
-  //   useEffect(() => {
-  //     console.log("useEffect  count1 = ", count);
-  //   }, [count]);
+  //va rula ori de cate ori de schimba count
+  useEffect(() => {
+    console.log("useEffect  count1 = ", count);
+  }, [count]);
 
-  //   // va rula ori de cate ori de schimba count2
-  //   useEffect(() => {
-  //     console.log("useEffect  count2 = ", count2);
-  //   }, [count2]);
+  // va rula ori de cate ori de schimba count2
+  useEffect(() => {
+    console.log("useEffect  count2 = ", count2);
+  }, [count2]);
 
-  //   // va rula ori de cate ori de schimba count SAU count2
-  //   useEffect(() => {
-  //     console.log(count, count2);
-  //   }, [count, count2]);
+  // va rula ori de cate ori de schimba count SAU count2
+  useEffect(() => {
+    console.log(count, count2);
+  }, [count, count2]);
 
   return (
     <div>
