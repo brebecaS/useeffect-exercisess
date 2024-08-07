@@ -3,8 +3,8 @@ import "./style.css";
 
 // O componenta se rerandeaza (se reexecuta codul din componenta) de cate ori i se schimba state-ul (ex: useState) sau props-urile
 function Example0() {
-  const [count, setCount] = useState(0); // STATE: count
-  const [count2, setCount2] = useState(0); // STATE: count
+  const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
 
   //   useEffect(() => {
   //     console.log("useEffect"); =>  ruleaza la firecare randare
