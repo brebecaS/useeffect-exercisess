@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useExemplu2hook = () => {
+const useQuotes = () => {
   const [quotes, setQuotes] = useState([]);
   const [loadQuotes, setLoadQuotes] = useState(false);
 
@@ -14,4 +14,4 @@ const useExemplu2hook = () => {
   return { quotes, setLoadQuotes };
 };
 
-export default useExemplu2hook;
+export default useQuotes;
