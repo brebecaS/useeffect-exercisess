@@ -4,19 +4,26 @@ import { useState, useEffect } from "react";
 // GET POST PUT DELETE
 function Example3() {
   const [products, setProducts] = useState([]);
+  const [loadProducts, setLoadProducts] = useState(false);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products").then(async (response) => {
-      const productsResponse = await response.json();
-      setProducts(productsResponse);
-      console.log(productsResponse);
-    });
-  }, []);
+    if (loadProducts === true)
+      fetch("https://fakestoreapi.com/products").then(async (response) => {
+        const productsResponse = await response.json();
+        setProducts(productsResponse);
+      });
+  }, [loadProducts]);
 
   return (
     <main>
       <h1>Exemplul 3</h1>
-      <button onClick={() => {}}>Load Products</button>
+      <button
+        onClick={() => {
+          setLoadProducts(true);
+        }}
+      >
+        Load Products
+      </button>
       {products.map((product) => {
         return (
           <section key={product.id}>
