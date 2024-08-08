@@ -1,18 +1,11 @@
 import "./style.css";
-import { useState, useEffect } from "react";
+import useProducts from "./hooks/useProducts";
+
 // "https://fakestoreapi.com/products"
 // GET POST PUT DELETE
-function Example3() {
-  const [products, setProducts] = useState([]);
-  const [loadProducts, setLoadProducts] = useState(false);
 
-  useEffect(() => {
-    if (loadProducts === true)
-      fetch("https://fakestoreapi.com/products").then(async (response) => {
-        const productsResponse = await response.json();
-        setProducts(productsResponse);
-      });
-  }, [loadProducts]);
+function Example3() {
+  const { products, setLoadProducts } = useProducts();
 
   return (
     <main>
