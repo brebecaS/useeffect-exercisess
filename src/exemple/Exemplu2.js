@@ -1,4 +1,5 @@
 import "./style.css";
+import useExemplu2hook from "./hooks/useExemplu2hook";
 import { useState, useEffect } from "react";
 
 // "https://type.fit/api/quotes"
@@ -7,26 +8,28 @@ import { useState, useEffect } from "react";
 function Example2() {
   const [quotes, setQuotes] = useState([]);
   const [loadQuotes, setLoadQuotes] = useState(false);
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch("https://type.fit/api/quotes")
-      .then((response) => response.json())
-      .then((response2) => setQuotes(response2));
-  }, []);
+    if (loadQuotes === true)
+      fetch("https://type.fit/api/quotes")
+        .then(async (response) => {
+          const quotesResponse = await response.json();
+          setQuotes(quotesResponse);
+        })
+        .catch((err) => console.log(err));
+  }, [loadQuotes]);
 
   return (
     <main>
       <h1>Exemplul 2</h1>
+
       <button
         onClick={() => {
-          setCount(count + 1);
+          setLoadQuotes(true);
         }}
       >
-        Buton apasat de <strong>{count}</strong> ori
+        Load Quotes
       </button>
-
-      <button onClick={() => setLoadQuotes(true)}>Load Quotes</button>
 
       {quotes.map((quote) => (
         <section key={quote.text}>

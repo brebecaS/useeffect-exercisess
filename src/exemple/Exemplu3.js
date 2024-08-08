@@ -1,18 +1,17 @@
 import "./style.css";
 import { useState, useEffect } from "react";
-import useFirstCustomHook from "./hooks/useFristCutomHook";
 
 // "https://fakestoreapi.com/products"
 // GET POST PUT DELETE
 
 function Example3() {
-  const { loadProductFunction, products } = useFirstCustomHook();
+  const products = [];
 
   return (
     <main>
       <h1>Exemplul 3</h1>
 
-      <button onClick={() => loadProductFunction(true)}>Load Products</button>
+      <button onClick={() => {}}>Load Products</button>
 
       {products.map((product) => {
         return (
