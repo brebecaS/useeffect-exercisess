@@ -9,7 +9,7 @@ import Examplu4 from "./exemple/Exemplu4";
 function App() {
   return (
     <div className="App">
-      <Examplu2 />
+      <Example2 />
     </div>
   );
 }
