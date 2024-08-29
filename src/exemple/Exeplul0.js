@@ -7,31 +7,30 @@ function Example0() {
   const [count2, setCount2] = useState(0);
 
   useEffect(() => {
-    console.log("useEffect"); // =>  ruleaza la firecare randare
+    console.log("fara array de dependente"); // =>  ruleaza la firecare randare
   });
 
   useEffect(() => {
-    console.log("useEffect"); //=> ruleaza doar la prima randare (cand se incarca componenta)
+    console.log("cu array de dependente gol"); //=> ruleaza doar la prima randare (cand se incarca componenta)
   }, []);
 
   //va rula ori de cate ori de schimba count
   useEffect(() => {
-    console.log("useEffect  count1 = ", count);
+    console.log("dependent de count 1 ", count);
   }, [count]);
 
   // va rula ori de cate ori de schimba count2
   useEffect(() => {
-    console.log("useEffect  count2 = ", count2);
+    console.log("dependent de count 2", count2);
   }, [count2]);
 
   // va rula ori de cate ori de schimba count SAU count2
   useEffect(() => {
-    console.log(count, count2);
+    console.log("dependent de count 1 si count 2", count, count2);
   }, [count, count2]);
 
   return (
     <div>
-      {console.log("in return")}
       <h1>Exemplul 0</h1>
       <button onClick={() => setCount(count + 1)}>
         Buton apasat de <strong>{count}</strong> ori
