@@ -7,6 +7,7 @@ import useProducts from "./hooks/useProducts";
 // fetch quotes on load
 // add quotes to the state
 // fetch quotes on button click
+// create product component
 function Example3() {
   const products = [];
   return (

@@ -7,6 +7,7 @@ import useQuotes from "./hooks/useQuotes";
 // fetch quotes on load
 // add quotes to the state
 // fetch quotes on button click
+// create quotes component
 function Example2() {
   const quotes = [];
 

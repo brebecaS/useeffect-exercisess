@@ -5,6 +5,7 @@ import "./style.css";
 // When the button is pressed 9 times, an alert will appear
 // Implement counter logic
 // Implement the logic for the button to be disabled
+
 function Example1() {
   return (
     <div>
