@@ -1,7 +1,7 @@
 import "./style.css";
 import useQuotes from "./hooks/useQuotes";
 
-// "https://type.fit/api/quotes"
+// "https://jsonplaceholder.typicode.com/posts"
 // GET POST PUT DELETE
 
 // fetch quotes on load
@@ -9,7 +9,7 @@ import useQuotes from "./hooks/useQuotes";
 // fetch quotes on button click
 // create quotes component
 function Example2() {
-  const quotes = [];
+  const posts = [{ title: "Title", body: "Body" }];
 
   return (
     <main>
@@ -17,13 +17,12 @@ function Example2() {
 
       {/* <button onClick={() => {}}>Load Quotes</button> */}
 
-      {quotes.map((quote) => (
-        <section key={quote.text}>
+      {posts.map((post) => (
+        <section key={post.text}>
           <h3>
-            <span>“</span>
-            {quote?.text}
+            <span>{post?.title}</span>
           </h3>
-          <i>- {quote?.author}</i>
+          {post?.body}
         </section>
       ))}
     </main>
