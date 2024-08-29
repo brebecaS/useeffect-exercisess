@@ -1,26 +1,16 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 
+// When the button is pressed 10 times, it will be disabled
+// When the button is pressed 9 times, an alert will appear
+// Implement counter logic
+// Implement the logic for the button to be disabled
 function Example1() {
-  const [count, setCount] = useState(0);
-  const [isDisabled, setIsDisabled] = useState(false);
-
-  useEffect(() => {
-    if (count === 9) alert("You have one more button push");
-
-    if (count === 10) setIsDisabled(true);
-  }, [count]);
-
   return (
     <div>
       <h1>Exemplul 1</h1>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-        disabled={isDisabled}
-      >
-        Buton apasat de <strong>{count}</strong> ori
+      <button onClick={() => {}} disabled={false}>
+        Buton apasat de <strong>0</strong> ori
       </button>
     </div>
   );

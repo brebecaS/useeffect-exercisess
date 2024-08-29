@@ -4,19 +4,15 @@ import useProducts from "./hooks/useProducts";
 // "https://fakestoreapi.com/products"
 // GET POST PUT DELETE
 
+// fetch quotes on load
+// add quotes to the state
+// fetch quotes on button click
 function Example3() {
-  const { products, setLoadProducts } = useProducts();
-
+  const products = [];
   return (
     <main>
       <h1>Exemplul 3</h1>
-      <button
-        onClick={() => {
-          setLoadProducts(true);
-        }}
-      >
-        Load Products
-      </button>
+      {/* <button onClick={() => {}}>Load Products</button> */}
       {products.map((product) => {
         return (
           <section key={product.id}>
