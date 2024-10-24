@@ -10,37 +10,31 @@ import { useEffect, useState } from "react";
 // fetch quotes on button click
 // create quotes component
 function Example2() {
-  const [posts, setPosts] = useState([]);
-  const [loadPosts, setLoadPosts] = useState(false);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts").then(
-      async (response) => {
-        setPosts(await response.json());
-      }
-    );
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((decodedData) => console.log(decodedData))
+      .catch((error) => console.error(error));
   }, []);
 
   return (
     <main>
       <h1>Exemplul 2</h1>
 
-      <button
-        onClick={() => {
-          setLoadPosts(!loadPosts);
-        }}
-      >
-        Load Posts
+      <button onClick={() => setCount(count + 1)}>
+        Buton apasat de <strong>{count}</strong> ori
       </button>
 
-      {posts.map((post) => (
-        <section key={post.id}>
-          <h3>
-            <span>{post?.title}</span>
-          </h3>
-          {post?.body}
-        </section>
-      ))}
+      <button>Load Posts</button>
+
+      <section>
+        <h3>
+          <span>Title</span>
+        </h3>
+        body
+      </section>
     </main>
   );
 }
