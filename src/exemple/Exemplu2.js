@@ -11,30 +11,40 @@ import { useEffect, useState } from "react";
 // create quotes component
 function Example2() {
   const [count, setCount] = useState(0);
+  const [posts, setPosts] = useState([]);
+  const [shouldLoadPosts, setShouldLoadPosts] = useState(false);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((decodedData) => console.log(decodedData))
-      .catch((error) => console.error(error));
-  }, []);
+    if (shouldLoadPosts === true)
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => response.json())
+        .then((decodedData) => setPosts(decodedData))
+        .catch((error) => console.error(error));
+  }, [shouldLoadPosts]);
 
   return (
     <main>
       <h1>Exemplul 2</h1>
 
-      <button onClick={() => setCount(count + 1)}>
+      {/* <button onClick={() => setCount(count + 1)}>
         Buton apasat de <strong>{count}</strong> ori
+      </button> */}
+
+      <button
+        onClick={() => {
+          setShouldLoadPosts(true);
+        }}
+      >
+        Load Posts
       </button>
-
-      <button>Load Posts</button>
-
-      <section>
-        <h3>
-          <span>Title</span>
-        </h3>
-        body
-      </section>
+      {posts.map((post) => (
+        <section key={post.id}>
+          <h3>
+            <span>{post.title}</span>
+          </h3>
+          {post.body}
+        </section>
+      ))}
     </main>
   );
 }
