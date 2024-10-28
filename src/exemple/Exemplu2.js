@@ -1,6 +1,5 @@
 import "./style.css";
-import useQuotes from "./hooks/useQuotes";
-import { useEffect, useState } from "react";
+import useExemplu2Hook from "./hooks/useExemplu2Hook";
 
 // "https://jsonplaceholder.typicode.com/posts"
 // GET POST PUT DELETE
@@ -10,17 +9,7 @@ import { useEffect, useState } from "react";
 // fetch quotes on button click
 // create quotes component
 function Example2() {
-  const [count, setCount] = useState(0);
-  const [posts, setPosts] = useState([]);
-  const [shouldLoadPosts, setShouldLoadPosts] = useState(false);
-
-  useEffect(() => {
-    if (shouldLoadPosts === true)
-      fetch("https://jsonplaceholder.typicode.com/posts")
-        .then((response) => response.json())
-        .then((decodedData) => setPosts(decodedData))
-        .catch((error) => console.error(error));
-  }, [shouldLoadPosts]);
+  const { setShouldLoadPosts, posts } = useExemplu2Hook();
 
   return (
     <main>

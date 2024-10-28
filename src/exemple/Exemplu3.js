@@ -1,5 +1,5 @@
 import "./style.css";
-import useProducts from "./hooks/useProducts";
+import useExemplu3Hook from "./hooks/useExemplu3Hook";
 
 // "https://fakestoreapi.com/products"
 // GET POST PUT DELETE
@@ -9,7 +9,8 @@ import useProducts from "./hooks/useProducts";
 // fetch quotes on button click
 // create product component
 function Example3() {
-  const products = [];
+  const { products } = useExemplu3Hook();
+
   return (
     <main>
       <h1>Exemplul 3</h1>

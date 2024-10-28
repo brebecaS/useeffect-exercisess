@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useResize from "./hooks/useResize";
 
 const Examplu4 = () => {
   const [count, setCount] = useState(0);
-  const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener("resize", (e) => {
-      setCurrentWidth(window.innerWidth);
-    });
-
-    return () => {
-      window.removeEventListener("resize", (e) => {
-        setCurrentWidth(window.innerWidth);
-      });
-    };
-  }, []);
+  const windowWidth = useResize();
 
   return (
     <div>
@@ -25,7 +14,7 @@ const Examplu4 = () => {
       >
         Buton apasat de <strong>{count}</strong> ori
       </button>
-      <h1>{currentWidth}</h1>
+      <h1>{windowWidth}</h1>
     </div>
   );
 };
